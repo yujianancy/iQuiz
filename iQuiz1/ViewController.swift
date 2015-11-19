@@ -11,22 +11,36 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate, UIPopoverPresentationControllerDelegate{
     
     var data = NSMutableData()
-    
-    var jsonItem:NSMutableArray!
-    
+    var refreshControl:UIRefreshControl!
     var urlPath:String!
     
     @IBOutlet weak var newTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if jsonItem != nil{
+            print(jsonItem)
+        } else{
+            print("nil")
+        }
+        
         startConnection()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        newTableView.addSubview(refreshControl)
                 // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func refresh(sender: AnyObject){
+        newTableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
     func startConnection(){
         if urlPath == nil{
             urlPath = "http://tednewardsandbox.site44.com/questions.json"
-            print("nil")
         }
         let url: NSURL = NSURL(string: urlPath)!
         let request: NSURLRequest = NSURLRequest(URL: url)
@@ -51,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             for json in jsonItem as Array<AnyObject>{
                 
-                let s:subject = subject(title: "", description: "", imageName: "marvel", questions: [])
+                let s:subject = subject(title: "", description: "", imageName: "science", questions: [])
                 
                 s.title = (json["title"] as AnyObject? as? String) ?? ""
                 
@@ -78,6 +92,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 subjects.append(s)
                 
             }
+            
+            subjects[1].image = UIImage(named: "marvel")!
+            
+            subjects[2].image = UIImage(named: "maths")!
     
         }
             

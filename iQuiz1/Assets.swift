@@ -36,3 +36,5 @@ class question{
 }
 
 var subjects:[subject] = []
+
+var jsonItem:NSMutableArray!

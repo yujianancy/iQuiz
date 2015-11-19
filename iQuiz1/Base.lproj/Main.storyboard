@@ -23,13 +23,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter URL:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqF-Tp-TGi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Enter URL:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqF-Tp-TGi">
                                 <rect key="frame" x="129" y="87" width="116" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-em-aKZ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQl-em-aKZ">
                                 <rect key="frame" x="116" y="206" width="142" height="53"/>
                                 <state key="normal" title="Check Now!"/>
                                 <connections>
@@ -39,8 +39,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QqF-Tp-TGi" firstAttribute="centerX" secondItem="p4K-4c-XDl" secondAttribute="centerX" id="G5B-5J-pjO"/>
+                            <constraint firstItem="lQl-em-aKZ" firstAttribute="centerX" secondItem="p4K-4c-XDl" secondAttribute="centerX" id="VyK-hE-fDM"/>
+                        </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="urlText" destination="d37-CW-hOq" id="2ww-fh-GJ2"/>
                     </connections>
@@ -267,11 +273,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUm-Xt-eCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436.5" y="360.5"/>
+            <point key="canvasLocation" x="1089.5" y="1197.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mbg-lP-F7b"/>
         <segue reference="d2T-f9-ss7"/>
+        <segue reference="wXF-f4-sLp"/>
     </inferredMetricsTieBreakers>
 </document>
